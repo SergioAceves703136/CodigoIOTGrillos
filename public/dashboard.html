@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grillos IoT</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="chartLoaderTemp.js"></script>
+        <script type="text/javascript" src="chartLoaderHum.js"></script>
+        <script type="text/javascript" src="chartLoaderGauge.js"></script>
+        <script type="text/javascript" src="updatePage.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class = "g-iz">
+                <h1>Grillos Dashboard</h1>
+                <div class = "itemA">
+                <div class="insideContainer">
+                            <label for="Caja">Selecciona Caja</label>
+                        </div>
+                        <div class="insideContainer">
+                            <input type="number"id="Caja" placeholder="1"min="1" max="9">
+                            <button type="button" disabled>Seleccionar</button>
+                        </div>
+                </div>
+            <div class = "itemA">
+                    <div class="insideContainer">
+                        <button type="button"disabled>Todas</button>
+                    </div>
+                    <div class="insideContainer">
+                        <button type="button" onclick="myFunction()"disabled>Actualizar</button>
+                    </div>   
+                </div>
+            <div class = "itemB">
+                <div class="insideContainer">
+                    <div class="description"> <label>P de agua/semana</label></div>
+                    <div class="description"><label>P de comida/semana</label></div>
+                </div>
+                <div class="insideContainer">
+                    <div class="results"><label id="avgWater">20 ml</label></div>
+                    <div class="results"><label id="avgFood">40 mg</label></div>
+                </div>
+            </div>
+            </div>
+            <div class = "g-der" id = "menu">
+                <div class="g-der-row">
+                    <div class="biggContainer">
+                        <div id="curve_chart1" style="width: 500px; height: 350px"></div>
+                    </div>
+                    <div class="biggContainer">
+                        <div id="curve_chart2" style="width: 500px; height: 350px"></div>
+                    </div>
+                </div>
+                <div class="g-der-row">
+                    <div class="biggContainer">
+                        <div class = "titulo"><label>Promedios Mensuales</label></div>
+                        <div class="container"> 
+                            <div class="promediosDes">
+                                <div class="description"> <label>Temperatura</label></div>
+                                <div class="description"> <label>Humedad</label></div>
+                                <div class="description"> <label>Alimento</label></div>
+                                <div class="description"> <label>Agua</label></div>
+                            </div> 
+                            <div class="promediosRes">
+                                <div class="results"><label id="promTemp">24 C</label></div>
+                                <div class="results"><label id="promHum">60%</label></div>
+                                <div class="results"><label id="promComida">20 ml</label></div>
+                                <div class="results"><label id="promAgua">20 ml</label></div>
+                            </div> 
+                        </div>                      
+                    </div>
+                    <div class="biggContainer">
+                        <div align="center" id="chart_div" style="width: 400px; height: 120px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
