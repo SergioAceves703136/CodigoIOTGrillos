@@ -3,6 +3,7 @@ AWS.config.update({region: 'us-west-2'});
 var ddb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 var fs = require("fs");
 let extract = require('./extractEspecific');
+let mailSender = require('./mailSender');
 var jsonT = [];
 var ScaningParams = {
     TableName: 'IOT_Criadero_Min',
@@ -24,7 +25,7 @@ function scanAll(){
                item.EndOfHarvest = extract(item.EndOfHarvest);
                item.FoodNumber = extract(item.FoodNumber);
                item.HumNumber = extract(item.HumNumber);  
-            });    
+            });
             jsonT.sort(function(a, b){return a.TimeStamp - b.TimeStamp});
             fs.writeFile("./public/cleanJson.json", JSON.stringify(jsonT), (err) => {
                 if (err) {
